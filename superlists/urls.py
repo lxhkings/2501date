@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from lists import views
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('', views.home_page, name='home'),
-    path('lists/new', views.new_list, name='new_list'),
-    path('lists/the-only-list-in-the-world/', views.view_list, name='view_list'),
+    re_path(r'^$', views.home_page, name='home'),
+    re_path(r'^lists/new$', views.new_list, name='new_list'),
+    # 我们调整URL的正则表达式以包含捕获组， 该捕获组(.+)将匹配任何字符，
+    # 直至以下内容/。捕获的文本将作为参数传递给视图。
+    re_path(r'^lists/(\d+)/$', views.view_list, name='view_list'),
+    re_path(r'^lists/(\d+)/add_item$', views.add_item, name='add_item'),
 ]
