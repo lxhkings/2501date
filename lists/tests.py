@@ -145,3 +145,5 @@ class NewItemTest(TestCase):
         self.assertRedirects(response, f'/lists/{correct_list.id}/')
 
         # self.fail('通过')
+
+
