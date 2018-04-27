@@ -3,11 +3,11 @@ Description=Gunicorn server for DOMAIN
 
 [Service]
 Restart=on-failure
-User=lxhkings
-WorkingDirectory=/home/lxhkings/sites/DOMAIN
-EnvironmentFile=/home/lxhkings/sites/DOMAIN/.env
+User=lxh
+WorkingDirectory=/home/lxh/sites/DOMAIN
+EnvironmentFile=/home/lxh/sites/DOMAIN/.env
 
-ExecStart=/home/lxhkings/sites/DOMAIN/venv/bin/gunicorn \
+ExecStart=/home/lxh/sites/DOMAIN/venv/bin/gunicorn \
     --bind=unix:/tmp/DOMAIN.socket \
     superlists.wsgi:application
 
