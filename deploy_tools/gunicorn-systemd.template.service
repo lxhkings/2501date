@@ -3,9 +3,9 @@ Description=Gunicorn server for DOMAIN
 
 [Service]
 Restart=on-failure
-User=lxh
-WorkingDirectory=/home/lxh/sites/DOMAIN
-EnvironmentFile=/home/lxh/sites/DOMAIN/.env
+User=lxhkings
+WorkingDirectory=/home/lxhkings/sites/DOMAIN
+EnvironmentFile=/home/lxhkings/sites/DOMAIN/.env
 
 ExecStart=/home/lxh/sites/DOMAIN/venv/bin/gunicorn \
     --bind=unix:/tmp/DOMAIN.socket \
